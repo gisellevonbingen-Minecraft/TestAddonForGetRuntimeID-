@@ -1,0 +1,7 @@
+<window size="190 244" pause="false" lightbox="false">
+	<image
+		source="minecolonies:textures/gui/builderhut/builder_paper.png"
+		size="190 244" />
+	<text id="desc" size="130 11" pos="30 14" color="black"
+		textalign="MIDDLE" />
+</window>
