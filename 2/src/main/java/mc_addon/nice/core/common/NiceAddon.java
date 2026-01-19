@@ -3,9 +3,12 @@ package mc_addon.nice.core.common;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.minecolonies.api.IMinecoloniesAPI;
+import com.minecolonies.api.colony.buildings.ModBuildings;
 import com.minecolonies.api.creativetab.ModCreativeTabs;
 
 import mc_addon.nice.core.common.init.AddonBlocks;
+import mc_addon.nice.core.common.init.AddonBuildingModules;
 import mc_addon.nice.core.common.init.AddonBuildings;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -18,7 +21,7 @@ import net.minecraftforge.registries.RegisterEvent;
 @Mod(NiceAddon.MOD_ID)
 public class NiceAddon
 {
-	public static final String MOD_ID = "mc_addon_nice";
+	public static final String MOD_ID = "mc_addon_t_nice";
 	public static final Logger LOGGER = LogManager.getLogger();
 
 	public NiceAddon()
@@ -41,6 +44,12 @@ public class NiceAddon
 		else if (registryKey.equals(ForgeRegistries.Keys.ITEMS))
 		{
 			AddonBlocks.registerBlockItem(event.getForgeRegistry());
+		}
+		else if (registryKey.equals(IMinecoloniesAPI.getInstance().getBuildingRegistry().getRegistryKey()))
+		{
+			ModBuildings.cook.get().getModuleProducers().add(AddonBuildingModules.NICE_MODULE_1);
+			ModBuildings.cook.get().getModuleProducers().add(AddonBuildingModules.NICE_MODULE_2);
+			ModBuildings.cook.get().getModuleProducers().add(AddonBuildingModules.NICE_MODULE_3);
 		}
 
 	}
